@@ -27,7 +27,7 @@ export async function loadBioformatsZarr(
   if (typeof source === 'string') {
     const url = source.endsWith('/') ? source.slice(0, -1) : source;
     const store = new HTTPStore(url + '/' + ZARR_DIR, options);
-    const xmlSource = await fetch(url + '/' + METADATA, options.fetchOptions);
+    const xmlSource = await fetch(url + '/OME/' + METADATA, options.fetchOptions);
     return loadBioformats(store, xmlSource);
   }
 
